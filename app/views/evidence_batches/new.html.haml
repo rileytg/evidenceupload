@@ -20,18 +20,13 @@
       %p
         All uploaded media will be forwarded to FBI.
 
+      %h5#total-evidence-count
+        = @count
+        %strong photos uploaded
+
       .file-uploader
         %h3.zeta Upload your evidence!
         = form_for @evidence_batch do |f|
-          .control
-            = f.label :name
-            = f.text_field :name
-          .control
-            = f.label :email
-            = f.email_field :email
-          .control
-            = f.label :phone
-            = f.text_field :phone
 
           .progress.progress-striped.progress-danger.active.hide
             .bar#is-image-progress-bar
@@ -50,12 +45,22 @@
             %a{onclick: "EvidenceBatches.pickFiles();", href:'#'} pick
             your files
 
+          %p
+            Contact info for law enforcement (optional)
+
+          .control
+            = f.label :name
+            = f.text_field :name
+          .control
+            = f.label :email
+            = f.email_field :email
+          .control
+            = f.label :phone
+            = f.text_field :phone
+
           %button.custom-button{type: 'submit'}
             Submit as evidence
 
-        %h5.zeta#total-evidence-count
-          = @count
-          photos uploaded
         .terms
           %p
             %em By uploading you agree that the files and all information you upload belong to you and you are putting them into the public domain. Law enforcement and other parties may use the information you provide, and may contact you if you provide contact information.
