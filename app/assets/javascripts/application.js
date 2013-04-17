@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require pm_forms
+//= require pm_filepicker
+//= require evidence_batches
