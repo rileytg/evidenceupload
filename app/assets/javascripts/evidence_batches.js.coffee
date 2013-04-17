@@ -30,6 +30,11 @@ jQuery ->
     $imageLanding = $("#is-image-landing")
 
 
+    # Behavior for remove image links
+    $imageLanding.on 'click', '.is-remove-fields', (event) ->
+      $(event.target).closest('li.js-nested-fields').remove()
+      false
+
 
     PMFilePicker.dropPane({
       $dropPane: $dropPane
