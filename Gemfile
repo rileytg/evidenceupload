@@ -42,6 +42,7 @@ group :test do
   gem 'growl'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'fakeweb'
 end
 
 group :development do
@@ -52,7 +53,8 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'newrelic_rpm'
-
+gem 'exifr'
+gem 'delayed_job_active_record'
 
 
 # To use ActiveModel has_secure_password

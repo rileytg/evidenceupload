@@ -16,6 +16,8 @@ Spork.prefork do
   require 'rspec/rails'
   require 'capybara/rspec'
 
+  FakeWeb.allow_net_connect = false
+
   #################################
   # For JS tests
   #
@@ -44,6 +46,7 @@ Spork.prefork do
     #end
 
     config.before(:each) do
+      FakeWeb.clean_registry
       DatabaseCleaner.strategy = if example.metadata[:js]
                                    :truncation
                                  else
