@@ -1,4 +1,3 @@
-EvidenceUpload.com
-==================
+EvidenceUpload.org
 
-This is the source for EvidenceUpload.com
+This is the source for EvidenceUpload.org
