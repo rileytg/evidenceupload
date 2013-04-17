@@ -5,7 +5,19 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'jasminerice'
+  gem 'guard-jasmine'
+  gem 'dotenv-rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+  gem 'foreman'
+end
 
 
 # Gems used only for assets and not required
@@ -18,6 +30,18 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara', '~> 1.1.0'
+  gem 'guard-rspec'
+  gem 'spork'
+  gem 'guard-spork'
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'growl'
+  gem 'database_cleaner'
+  gem 'faker'
 end
 
 gem 'jquery-rails'
