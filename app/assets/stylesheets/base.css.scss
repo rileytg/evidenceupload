@@ -61,6 +61,20 @@ div.file-uploader{
   }
 }
 
+.share {
+  width: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+  .fb-like, .twitter-share-button {
+    display: block;
+    float: left;
+  }
+  .twitter-share-button {
+    margin-top: 5px;
+  }
+
+}
+
 .custom-button{
   background: #E93F68;
   border: 0;
