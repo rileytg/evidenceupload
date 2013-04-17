@@ -23,58 +23,55 @@ jQuery ->
 #
   dropPane: (options) ->
     options = $.extend({
-                       $dropPane: null
-                       imageLanding: null
-                       imageProgressBar: null
-                       dragEnter: null
-                       dragLeave: null
-                       onStart: null
-                       onSuccess: null
-                       onError: null
-                       onProgress: null
-                       getImageContainer: null
-                       allowMultiple: true
-                       }, options || {})
+      $dropPane: null
+      imageLanding: null
+      imageProgressBar: null
+      dragEnter: null
+      dragLeave: null
+      onStart: null
+      onSuccess: null
+      onError: null
+      onProgress: null
+      getImageContainer: null
+      allowMultiple: true
+    }, options || {})
 
 
 
 
     requiredOptions = {
-    $dropPane: options.$dropPane != null
-    $dropPane: options.$dropPane.length > 0
-    onSuccess: options.onSuccess != null
-    onError: options.onError != null
+      $dropPane: options.$dropPane != null
+      $dropPane: options.$dropPane.length > 0
+      onSuccess: options.onSuccess != null
+      onError: options.onError != null
     }
     for optionName, optionValue of requiredOptions
       unless optionValue
         if window.console then console.log "ERROR Line 55: ", optionName
 
-    $.globalMessenger().do
-      errorMessage: 'Error uploading your image'
-      successMessage: 'Image uploaded!'
-      action: (messenger) ->
-        filepicker.makeDropPane(options.$dropPane, {
-        multiple: options.allowMultiple
-        mimetype: 'image/*'
-        dragEnter: () ->
-          if options.dragEnter
-            options.dragEnter()
-        dragLeave: () ->
-          if options.dragLeave
-            options.dragLeave()
-        onStart: () ->
-          if options.onStart
-            options.onStart()
-        onSuccess: (fpfiles) ->
-          options.onSuccess(fpfiles, messenger)
-        onError: (type, message) ->
-          if options.onError
-            options.onError(type, message, messenger)
-        onProgress: (percentage) ->
-          if options.onProgress
-            options.onProgress(percentage)
 
-        })
+    filepicker.makeDropPane(options.$dropPane, {
+      multiple: options.allowMultiple
+      mimetype: 'image/*'
+      dragEnter: () ->
+        if options.dragEnter
+          options.dragEnter()
+      dragLeave: () ->
+        if options.dragLeave
+          options.dragLeave()
+      onStart: () ->
+        if options.onStart
+          options.onStart()
+      onSuccess: (fpfiles) ->
+        options.onSuccess(fpfiles)
+      onError: (type, message) ->
+        if options.onError
+          options.onError(type, message)
+      onProgress: (percentage) ->
+        if options.onProgress
+          options.onProgress(percentage)
+
+    })
 
   addImages: (fpfiles, getImageContainer, onComplete) ->
     for file in fpfiles
