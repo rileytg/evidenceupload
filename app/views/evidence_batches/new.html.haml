@@ -20,47 +20,49 @@
       %p
         All uploaded media will be forwarded to FBI.
 
-        .file-uploader
-          %h3.zeta Upload your evidence!
-          = form_for @evidence_batch do |f|
-            .control
-              = f.label :name
-              = f.text_field :name
-            .control
-              = f.label :email
-              = f.email_field :email
-            .control
-              = f.label :phone
-              = f.text_field :phone
+      .file-uploader
+        %h3.zeta Upload your evidence!
+        = form_for @evidence_batch do |f|
+          .control
+            = f.label :name
+            = f.text_field :name
+          .control
+            = f.label :email
+            = f.email_field :email
+          .control
+            = f.label :phone
+            = f.text_field :phone
 
-            -############################################
-            -# FOR A BOOTSTRAP PROGRESS BAR
-            -#
-            -# Progress bar and messages for image upload
-            -#.progress.progress-striped.progress-danger.active.hide
-            -#  .bar#is-image-progress-bar
-            -#
-            -############################################
+          -############################################
+          -# FOR A BOOTSTRAP PROGRESS BAR
+          -#
+          -# Progress bar and messages for image upload
+          -#.progress.progress-striped.progress-danger.active.hide
+          -#  .bar#is-image-progress-bar
+          -#
+          -############################################
 
 
-            %p
-              Drop images anywhere upload
+          %p
+            Drop images anywhere upload
 
-            -# Button for image upload
-            %a.custom-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
-              Select &amp; Upload Evidence
+          -# Button for image upload
+          %a.custom-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
+            Select &amp; Upload Evidence
 
-            -# Image landing
-            #is-image-landing
-              = add_fields_tag f, :evidences
-              %ul
-                = f.fields_for :evidences do |builder|
-                  = render 'evidence_fields', f: builder
-          %h5.zeta#total-evidence-count
-            1000 photos uploaded
-          .terms
-            %p
-              %em By uploading you agree that the files and all information you upload belong to you and you are putting them into the public domain. Law enforcement and other parties may use the information you provide, and may contact you if you provide contact information.
+          -# Image landing
+          #is-image-landing
+            = add_fields_tag f, :evidences
+            %ul
+              = f.fields_for :evidences do |builder|
+                = render 'evidence_fields', f: builder
+        %h5.zeta#total-evidence-count
+          = @count
+          photos uploaded
+        .terms
+          %p
+            %em By uploading you agree that the files and all information you upload belong to you and you are putting them into the public domain. Law enforcement and other parties may use the information you provide, and may contact you if you provide contact information.
+
 
   %footer
     %ul

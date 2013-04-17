@@ -5,7 +5,7 @@ class EvidenceBatchesController < ApplicationController
   # GET /evidence_batches/new.json
   def new
     @evidence_batch = EvidenceBatch.new
-
+    @count = Evidence.all.count
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evidence_batch }
