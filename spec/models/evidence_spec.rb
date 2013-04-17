@@ -15,7 +15,7 @@ describe Evidence do
       @evidence.captured_at.should == Time.parse('Sat, 20 Aug 2011 19:57:37 UTC')
     end
 
-    context "#image?" do
+    context "content types" do
       let(:image_evidence) {
         [
           create(:evidence, mime_type: "image/jpeg"),
@@ -32,9 +32,14 @@ describe Evidence do
         ]
       }
 
-      it 'returns true for jpegs, pngs, and gifs and false for other mime_types' do
+      it 'returns true for jpegs, pngs, and gifs and false for other mime_types when calling #image?' do
         image_evidence.all?(&:"image?").should be_true
         video_evidence.none?(&:"image?").should be_true
+      end
+
+      it 'returns true for mp4, ogg, webm and false for other mime_types when calling #video?' do
+        image_evidence.none?(&:"video?").should be_true
+        video_evidence.all?(&:"video?").should be_true
       end
     end
   end

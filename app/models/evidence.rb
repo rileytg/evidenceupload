@@ -6,6 +6,10 @@ class Evidence < ActiveRecord::Base
     %w(image/jpeg image/gif image/png).include?(mime_type)
   end
 
+  def video?
+    %w(video/mp4 video/webm video/ogg).include?(mime_type)
+  end
+
   # Retrieves the media from S3 and reads its EXIF data
   def parse_exif!
     uri = URI(url)

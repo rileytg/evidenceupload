@@ -13,6 +13,11 @@
             %span.field Phone
             %span.vlaue= evidence_batch.phone
         %hr
+        .videos
+          - evidence_batch.evidences.select {|e| e.video?}.each do |video|
+            .video
+              %video{width: "400", controls: "true"}
+                %source{src: video.url, type: video.mime_type}
         .photos
           %table
             - evidence_batch.evidences.select {|e| e.image?}.each_slice(2) do |image_slice|
