@@ -1,7 +1,8 @@
 Evidenceupload::Application.routes.draw do
   resources :evidence_batches
   root to: 'evidence_batches#new'
-  match '/contributors' => 'EvidenceBatches#contributors'
+  match '/about' => 'EvidenceBatches#about'
+  match '/contributors' => redirect('/about')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
