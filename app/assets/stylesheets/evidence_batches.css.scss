@@ -31,6 +31,16 @@
   }
 }
 
+.step {
+  background: image-url('circle.png') 0 0 no-repeat;
+  display: inline-block;
+  width: 66px;
+  height: 66px;
+  line-height: 66px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
 
 #total-evidence-count {
   margin-top: 35px;
