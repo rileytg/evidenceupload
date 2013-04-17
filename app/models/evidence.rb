@@ -1,5 +1,5 @@
 class Evidence < ActiveRecord::Base
-  attr_accessible :source, :url
+  attr_accessible :source, :url, :mime_type
   belongs_to :evidence_batch
 
   # Retrieves the media from S3 and reads its EXIF data

@@ -77,10 +77,9 @@ jQuery ->
     for file in fpfiles
       $imageContainer = getImageContainer()
       $li = $imageContainer.find('li').last()
-      $urlField = $li.find('input.js-image-url[type=hidden]')
-      $sourceField = $li.find('input.js-image-source[type=hidden]')
-      $urlField.val(file.url)
-      $sourceField.val("filepicker")
+      $li.find('input.js-image-url[type=hidden]').val(file.url)
+      $li.find('input.js-image-source[type=hidden]').val('filepicker')
+      $li.find('input.js-mime-type[type=hidden]').val(file.mimetype)
       $li.append($('<img>', src: file.url + '/convert?width=100'))
     onComplete()
 
