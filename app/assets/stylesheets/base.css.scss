@@ -83,6 +83,12 @@ div.file-uploader{
   &:focus {
     outline:#E93F68 auto 3px;
   }
+
+  &:disabled {
+    background: #ff7da5;
+    color: white;
+    cursor: wait;
+  }
 }
 
 footer{
