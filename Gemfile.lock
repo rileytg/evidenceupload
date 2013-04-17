@@ -89,6 +89,11 @@ GEM
       spork (>= 0.8.4)
     haml (4.0.2)
       tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     hike (1.2.2)
     i18n (0.6.4)
     jasminerice (0.0.10)
@@ -208,6 +213,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   haml
+  haml-rails
   jasminerice
   jquery-rails
   pg

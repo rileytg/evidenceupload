@@ -44,6 +44,11 @@ group :test do
   gem 'faker'
 end
 
+group :development do
+  gem 'haml-rails'
+end
+
+
 gem 'jquery-rails'
 gem 'haml'
 
