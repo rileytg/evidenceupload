@@ -2,7 +2,7 @@ jQuery ->
   window.EvidenceBatches = {
   # Internal: called by filepicker multiple upload success
   uploadSuccess: (fpFiles) ->
-
+    $('#submit').removeAttr('disabled')
     getImageContainer = () ->
       $addField = $imageLanding.children('input.js-add-field[type=hidden]')
       $images = $imageLanding.find('ul')
