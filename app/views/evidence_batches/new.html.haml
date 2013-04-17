@@ -46,16 +46,22 @@
           %p
             Drop images anywhere upload
 
-          -# Button for image upload
-          %a.custom-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
-            Select &amp; Upload Evidence
-
           -# Image landing
           #is-image-landing
             = add_fields_tag f, :evidences
+
+            Drag and drop images or videos below:
             %ul
               = f.fields_for :evidences do |builder|
                 = render 'evidence_fields', f: builder
+
+            Or
+            %a{onclick: "EvidenceBatches.pickFiles();", href:'#'} pick
+            your files
+
+          %button.custom-button{type: 'submit'}
+            Submit as evidence
+
         %h5.zeta#total-evidence-count
           = @count
           photos uploaded

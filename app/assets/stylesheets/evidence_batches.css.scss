@@ -3,14 +3,31 @@
 #is-image-landing {
   margin-bottom: 10px;
   margin-top: 10px;
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    img {
-      width: 100%;
-    }
 
+  ul {
+    overflow: hidden;
+    border: 1px dashed #333;
+    min-height: 300px;
+    list-style-type: none;
+    padding: 5px;
+    margin: 0;
+    background-color: whitesmoke;
+
+    li {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      width: 100px;
+      height: 100px;
+      float: left;
+      position: relative;
+      margin: 5px;
+
+      .is-remove-fields {
+        right: 5px;
+        top: 5px;
+        position: absolute;
+      }
+    }
   }
 }
 

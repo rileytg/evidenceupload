@@ -76,11 +76,12 @@ jQuery ->
   addImages: (fpfiles, getImageContainer, onComplete) ->
     for file in fpfiles
       $imageContainer = getImageContainer()
-      $urlField = $imageContainer.find('input.js-image-url[type=hidden]').last()
-      $sourceField = $imageContainer.find('input.js-image-source[type=hidden]').last()
+      $li = $imageContainer.find('li').last()
+      $urlField = $li.find('input.js-image-url[type=hidden]')
+      $sourceField = $li.find('input.js-image-source[type=hidden]')
       $urlField.val(file.url)
       $sourceField.val("filepicker")
-      $imageContainer.find('img').last().attr('src', file.url)
+      $li.append($('<img>', src: file.url + '/convert?width=100'))
     onComplete()
 
   }
