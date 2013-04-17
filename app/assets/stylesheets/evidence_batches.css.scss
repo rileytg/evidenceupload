@@ -104,8 +104,12 @@ header p{
   color:#E93F68;
 }
 
-section{
+section {
   padding: 5%;
+   p {
+    max-width: 500px;
+    font-size: 16px;
+  }
 }
 
 div.content{
@@ -124,13 +128,6 @@ div.file_uploader{
   background: #FAFAFA;
   border: 1px solid #F9F9F9;
   border-radius: 3px;
-}
-
-section p{
-  display: block;
-  max-width: 500px;
-  margin: auto;
-  font-size: 16px;
 }
 
 a.cta, input.cta, button.cta{
@@ -158,17 +155,14 @@ a.cta:focus, input.cta:focus, button.cta:focus{
 }
 
 footer{
-
-}
-
-footer ul{
-  padding-left: 0;
-}
-
-footer ul li{
-  list-style: none;
-  display: inline-block;
-  padding: 0 12px;
+  ul {
+    padding-left: 0;
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0 12px;
+    }
+  }
 }
 
 span.made_in_boston{
