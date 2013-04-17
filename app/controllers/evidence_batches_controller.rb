@@ -20,7 +20,7 @@ class EvidenceBatchesController < ApplicationController
 
     respond_to do |format|
       if @evidence_batch.save
-        format.html { redirect_to @evidence_batch, notice: 'Evidence batch was successfully created.' }
+        format.html { redirect_to new_evidence_batch_path, notice: 'Evidence batch was successfully added.' }
         format.json { render json: @evidence_batch, status: :created, location: @evidence_batch }
       else
         format.html { render action: "new" }
