@@ -1,0 +1,25 @@
+.content
+  - unless @evidence_batches.empty?
+    - @evidence_batches.each do |evidence_batch|
+      .evidence_batch{data: {id: evidence_batch.id}}
+        .info
+          %p.name
+            %span.field Name
+            %span.value= evidence_batch.name
+          %p.email
+            %span.field Email
+            %span.value= evidence_batch.email
+          %p.phone
+            %span.field Phone
+            %span.vlaue= evidence_batch.phone
+        %hr
+        .photos
+          %table
+            - evidence_batch.evidences.select {|e| e.image?}.each_slice(2) do |image_slice|
+              %tr
+                - image_slice.each do |image|
+                  %td
+                    %a{href: image.url, target: "_blank"}
+                      %img{src: "#{image.url}/convert?w=200"}
+  - else
+    %p Currently there is no uploaded evidence
