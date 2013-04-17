@@ -47,6 +47,7 @@ jQuery ->
 
 
       onStart: () ->
+        $imageProgressBar.css('width', '0%')
         $imageProgressBar.parent().show()
 
       onSuccess: EvidenceBatches.uploadSuccess
@@ -55,5 +56,5 @@ jQuery ->
         alert '(' + type + ')' + message
 
       onProgress: (percentage) ->
-        $imageProgressBar.html("#{percentage}%")
+        $imageProgressBar.css('width', "#{percentage}%")
       })
