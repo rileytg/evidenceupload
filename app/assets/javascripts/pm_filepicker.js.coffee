@@ -52,7 +52,7 @@ jQuery ->
 
     filepicker.makeDropPane(options.$dropPane, {
       multiple: options.allowMultiple
-      mimetype: 'image/*'
+      mimetypes: 'image/*, video/*'
       dragEnter: () ->
         if options.dragEnter
           options.dragEnter()

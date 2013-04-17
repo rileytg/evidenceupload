@@ -3,6 +3,8 @@ jQuery ->
   # Internal: called by filepicker multiple upload success
   uploadSuccess: (fpFiles) ->
     $('#submit').removeAttr('disabled')
+    $("#is-image-landing li.placeholder").hide()
+
     getImageContainer = () ->
       $addField = $imageLanding.children('input.js-add-field[type=hidden]')
       $images = $imageLanding.find('ul')
@@ -32,6 +34,8 @@ jQuery ->
 
     # Behavior for remove image links
     $imageLanding.on 'click', '.is-remove-fields', (event) ->
+      count = $imageLanding.find('ul li:not(.placeholder)').length
+      $imageLanding.find('li.placeholder').toggle(count > 0)
       $(event.target).closest('li.js-nested-fields').remove()
       false
 
@@ -40,11 +44,11 @@ jQuery ->
       $dropPane: $dropPane
       multiple: true
 
-      dragEnter: () ->
+      dragEnter: ->
+        $imageLanding.find('ul').addClass('active')
 
-
-      dragLeave: () ->
-
+      dragLeave: ->
+        $imageLanding.find('ul').removeClass('active')
 
       onStart: () ->
         $imageProgressBar.css('width', '0%')

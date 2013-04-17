@@ -46,6 +46,8 @@
               .bar#is-image-progress-bar
 
             %ul
+              %li.placeholder
+                Drop photos and videos here
               = f.fields_for :evidences do |builder|
                 = render 'evidence_fields', f: builder
 
