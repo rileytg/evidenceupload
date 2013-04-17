@@ -1,0 +1,19 @@
+= form_for @evidence_batch do |f|
+  - if @evidence_batch.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@evidence_batch.errors.count, "error")} prohibited this evidence_batch from being saved:"
+      %ul
+        - @evidence_batch.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :phone
+    = f.text_field :phone
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

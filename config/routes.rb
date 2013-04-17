@@ -1,4 +1,7 @@
 Evidenceupload::Application.routes.draw do
+  resources :evidence_batches
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
