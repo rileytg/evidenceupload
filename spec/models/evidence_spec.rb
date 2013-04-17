@@ -14,5 +14,28 @@ describe Evidence do
       @evidence.latitude.should == 37.788
       @evidence.captured_at.should == Time.parse('Sat, 20 Aug 2011 19:57:37 UTC')
     end
+
+    context "#image?" do
+      let(:image_evidence) {
+        [
+          create(:evidence, mime_type: "image/jpeg"),
+          create(:evidence, mime_type: "image/gif"),
+          create(:evidence, mime_type: "image/png")
+        ]
+      }
+
+      let(:video_evidence) {
+        [
+          create(:evidence, mime_type: "video/mp4"),
+          create(:evidence, mime_type: "video/ogg"),
+          create(:evidence, mime_type: "video/webm")
+        ]
+      }
+
+      it 'returns true for jpegs, pngs, and gifs and false for other mime_types' do
+        image_evidence.all?(&:"image?").should be_true
+        video_evidence.none?(&:"image?").should be_true
+      end
+    end
   end
 end

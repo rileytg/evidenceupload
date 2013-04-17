@@ -56,3 +56,25 @@
   margin-bottom:36px;
 }
 
+.evidence_batch {
+  margin-bottom: 25px;
+
+  .info {
+    p {
+      text-align: left;
+      margin: 1px 0px 1px 0px;
+
+      .field {
+        display: inline-block;
+        width: 75px;
+      }
+    }
+  }
+
+  .photos {
+    table {
+      margin: 0px auto 0px auto;
+    }
+  }
+}
+

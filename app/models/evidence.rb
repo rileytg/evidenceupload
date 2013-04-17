@@ -2,6 +2,10 @@ class Evidence < ActiveRecord::Base
   attr_accessible :source, :url, :mime_type
   belongs_to :evidence_batch
 
+  def image?
+    %w(image/jpeg image/gif image/png).include?(mime_type)
+  end
+
   # Retrieves the media from S3 and reads its EXIF data
   def parse_exif!
     uri = URI(url)

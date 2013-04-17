@@ -1,5 +1,13 @@
 class EvidenceBatchesController < ApplicationController
+  http_basic_authenticate_with name: ENV["EU_UN"], password: ENV["EU_PW"], only: :index
 
+  def index
+    @evidence_batches = EvidenceBatch.includes(:evidences).all
+    respond_to do |format|
+      format.html
+      format.json {render json: @evidence_batches}
+    end
+  end
 
   # GET /evidence_batches/new
   # GET /evidence_batches/new.json
