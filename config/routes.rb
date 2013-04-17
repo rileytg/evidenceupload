@@ -1,6 +1,7 @@
 Evidenceupload::Application.routes.draw do
   resources :evidence_batches
   root to: 'evidence_batches#new'
+  match '/contributors' => 'EvidenceBatches#contributors'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

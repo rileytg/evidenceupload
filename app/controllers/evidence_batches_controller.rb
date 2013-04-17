@@ -29,4 +29,7 @@ class EvidenceBatchesController < ApplicationController
     end
   end
 
+  def contributors
+  end
+
 end
