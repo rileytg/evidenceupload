@@ -7,7 +7,7 @@ class EvidenceBatchesController < ApplicationController
     @evidence_batch = EvidenceBatch.new
     @count = Evidence.all.count
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @evidence_batch }
     end
   end
@@ -20,7 +20,7 @@ class EvidenceBatchesController < ApplicationController
 
     respond_to do |format|
       if @evidence_batch.save
-        format.html { redirect_to new_evidence_batch_path, notice: 'Evidence batch was successfully added.' }
+        format.html # create.html.haml
         format.json { render json: @evidence_batch, status: :created, location: @evidence_batch }
       else
         format.html { render action: "new" }
