@@ -1,5 +1,31 @@
-%h1 New evidence_batch
+%header
+  %h1.beta
+    Evidence Upload
+  %p
+    for the Boston Marathon Tragedy
 
-= render 'form'
+.content
+  %section
+    %p
+      If you were at the event and near the blast either before, during, or after the explosions:
+      %strong we need your photographs!
+      Even if you don't think it's very useful, there
+      %strong still might be something
 
-= link_to 'Back', evidence_batches_path
+      .file_uploader
+
+        %h3.zeta Upload your evidence!
+        %form
+          %button.cta
+            Select &amp; Upload Evidence
+        %h5.zeta
+          1000 photos uploaded
+%footer
+  %ul
+    %li
+      %a(href='#') Contact Us
+    %li
+      %a(href='http://www.twitter.com/evidenceupload')
+        @evidenceupload
+  %span.made_in_boston
+    Made in Boston
