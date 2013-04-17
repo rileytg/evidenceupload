@@ -5,6 +5,10 @@
     %p
       for the Boston Marathon Tragedy
 
+    %h5#total-evidence-count
+      = @count
+      %strong photos uploaded
+
   .content
     %section
       %p
@@ -20,35 +24,14 @@
       %p
         All uploaded media will be forwarded to FBI.
 
-      %h5#total-evidence-count
-        = @count
-        %strong photos uploaded
+    .file-uploader
 
-      .file-uploader
+      = form_for @evidence_batch do |f|
 
-        = form_for @evidence_batch do |f|
-
+        %section
           %h3
             %span.step 1
-            Identify yourself
-
-          %p
-            Please leave your contact information in case any follow up is
-            required. This is strictly optional.
-
-          .control
-            = f.label :name
-            = f.text_field :name
-          .control
-            = f.label :email
-            = f.email_field :email
-          .control
-            = f.label :phone
-            = f.text_field :phone
-
-          %h3
-            %span.step 2
-            Add your photos and videos
+            Add your photos
 
           %p
             Drag and drop images or videos into the box below. Or you can
@@ -66,10 +49,35 @@
               = f.fields_for :evidences do |builder|
                 = render 'evidence_fields', f: builder
 
-          %button.custom-button{type: 'submit'}
-            Submit as evidence
+        %section
+          %h3
+            %span.step 2
+            Identify yourself
 
-        .terms
+          %p
+            Please leave your contact information in case any follow up is
+            required. This is strictly optional.
+
+          %table
+            %tr
+              %td= f.label :name
+              %td= f.text_field :name
+            %tr
+              %td= f.label :email
+              %td= f.email_field :email
+            %tr
+              %td= f.label :phone
+              %td= f.text_field :phone
+
+        %section
+          %h3
+            %span.step 3
+            Finished!
+
+        %button.custom-button{type: 'submit'}
+          Submit as evidence
+
+        %section.terms
           %p
             %em By uploading you agree that the files and all information you upload belong to you and you are putting them into the public domain. Law enforcement and other parties may use the information you provide, and may contact you if you provide contact information.
 
@@ -88,3 +96,8 @@
           @evidenceupload
     %span#made-in-boston
       Made in Boston
+
+    .share
+      %a(href="https://twitter.com/share" class="twitter-share-button" data-via="jbaudanza")
+        Tweet
+      .fb-like(data-href="http://www.evidenceupload.org" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false")

@@ -168,10 +168,12 @@ p {
 	margin: 0 0 1.5em;
 }
 
+/*
 p + p {
 	text-indent: 1.5em;
 	margin-top: -1.5em;
 }
+*/
 
 /**
  *

@@ -52,11 +52,27 @@ div.content{
 }
 div.file-uploader{
   margin: auto;
-  padding: 20px;
-  margin-top: 36px;
   background: #FAFAFA;
   border: 1px solid #F9F9F9;
   border-radius: 3px;
+
+  table {
+    margin-left: 120px;
+  }
+}
+
+.share {
+  width: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+  .fb-like, .twitter-share-button {
+    display: block;
+    float: left;
+  }
+  .twitter-share-button {
+    margin-top: 5px;
+  }
+
 }
 
 .custom-button{
