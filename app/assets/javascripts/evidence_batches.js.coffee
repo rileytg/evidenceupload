@@ -9,10 +9,6 @@ jQuery ->
       PMForms.addFields($addField, $images)
 
     PMFilePicker.addImages(fpFiles, getImageContainer, () ->
-      $dropPane.html("Drop here to upload.").css({
-       'backgroundColor': "#F6F6F6",
-       'border': "1px dashed #666"
-       })
       $imageProgressBar.parent().hide()
 
     )
@@ -40,19 +36,12 @@ jQuery ->
       multiple: true
 
       dragEnter: () ->
-        $dropPane.html("Drop here to upload").css({
-          'backgroundColor': "#E0E0E0"
-          'border': "1px solid #000"
-        })
+
 
       dragLeave: () ->
-        $dropPane.html("Drop images here").css({
-          'backgroundColor': "#F6F6F6"
-          'border': "1px dashed #666"
-        })
+
 
       onStart: () ->
-        $dropPane.html("Uploading.")
         $imageProgressBar.parent().show()
 
       onSuccess: EvidenceBatches.uploadSuccess
