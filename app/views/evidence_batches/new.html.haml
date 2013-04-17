@@ -25,28 +25,16 @@
         %strong photos uploaded
 
       .file-uploader
-        %h3.zeta Upload your evidence!
+
         = form_for @evidence_batch do |f|
 
-          .progress.progress-striped.progress-danger.active.hide
-            .bar#is-image-progress-bar
-
-          -# Image landing
-          #is-image-landing
-            = add_fields_tag f, :evidences
-
-            %p
-              Drag and drop images or videos below:
-            %ul
-              = f.fields_for :evidences do |builder|
-                = render 'evidence_fields', f: builder
-
-            Or
-            %a{onclick: "EvidenceBatches.pickFiles();", href:'#'} pick
-            your files
+          %h3
+            %span.step 1
+            Identify yourself
 
           %p
-            Contact info for law enforcement (optional)
+            Please leave your contact information in case any follow up is
+            required. This is strictly optional.
 
           .control
             = f.label :name
@@ -57,6 +45,26 @@
           .control
             = f.label :phone
             = f.text_field :phone
+
+          %h3
+            %span.step 2
+            Add your photos and videos
+
+          %p
+            Drag and drop images or videos into the box below. Or you can
+            %a{onclick: "EvidenceBatches.pickFiles();", href:'#'} pick
+            them from your filesystem or social media accounts.
+
+          -# Image landing
+          #is-image-landing
+            = add_fields_tag f, :evidences
+
+            .progress.progress-striped.progress-danger.active.hide
+              .bar#is-image-progress-bar
+
+            %ul
+              = f.fields_for :evidences do |builder|
+                = render 'evidence_fields', f: builder
 
           %button.custom-button{type: 'submit'}
             Submit as evidence
