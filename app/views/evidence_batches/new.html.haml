@@ -34,9 +34,12 @@
             Add your photos
 
           %p
-            Drag and drop images or videos into the box below. Or you can
-            %a{onclick: "EvidenceBatches.pickFiles();", href:'#'} pick
-            them from your filesystem or social media accounts.
+            Drag and drop images or videos into the box below. Or you use the
+            button to browse your hard drive or social media sites.
+
+          %p
+            %a.pick-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
+              Pick files from your file system or social media.
 
           -# Image landing
           #is-image-landing
