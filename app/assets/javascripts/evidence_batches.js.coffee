@@ -1,4 +1,7 @@
 jQuery ->
+  supported = ('draggable' of document.createElement('span'))
+  $('.js-show-if-drag-and-drop').toggle(supported)
+
   window.EvidenceBatches = {
   # Internal: called by filepicker multiple upload success
   uploadSuccess: (fpFiles) ->

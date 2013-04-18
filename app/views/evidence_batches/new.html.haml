@@ -33,7 +33,7 @@
             %span.step 1
             Add your photos
 
-          %p
+          %p.js-show-if-drag-and-drop
             Drag and drop images or videos into the box below. Or you use the
             button to browse your hard drive or social media sites.
 
@@ -42,7 +42,7 @@
               Pick files from your file system or social media.
 
           -# Image landing
-          #is-image-landing
+          #is-image-landing.js-show-if-drag-and-drop
             = add_fields_tag f, :evidences
 
             .progress.progress-striped.progress-danger.active.hide
