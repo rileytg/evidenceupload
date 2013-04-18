@@ -18,11 +18,17 @@ a:hover,
   color: #60A4CA;
 }
 
-
 img {
   border: 0;
 }
 
+strong, b {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
 
 h1, h2, h3, h4, h5 {
   font-family:"Quadon-Thin", "Helvetica Neue", Helvetica, Arial, sans-serif;
