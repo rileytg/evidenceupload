@@ -37,7 +37,7 @@ jQuery ->
       $(event.target).closest('li.js-nested-fields').remove()
 
       count = $imageLanding.find('ul li:not(.placeholder)').length
-      $imageLanding.find('li.placeholder').toggle(count > 0)
+      $imageLanding.find('li.placeholder').toggle(count == 0)
       false
 
 
