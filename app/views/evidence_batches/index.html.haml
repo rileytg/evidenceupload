@@ -23,7 +23,6 @@
             .video{data: {long: video.longitude, lat: video.latitude}}
               %video{width: "400", controls: "true"}
                 %source{src: video.url, type: video.mime_type}
-            }
         .photos
           %table
             - evidence_batch.evidences.select {|e| e.image?}.each_slice(2) do |image_slice|
