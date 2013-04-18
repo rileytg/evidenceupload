@@ -1,4 +1,6 @@
 .content
+  #map-canvas{style: "height: 400px; width: 400px; margin: 0px auto 50px auto;"}
+
   - unless @evidence_batches.empty?
     - @evidence_batches.each do |evidence_batch|
       .evidence_batch{data: {id: evidence_batch.id}}
@@ -15,16 +17,47 @@
         %hr
         .videos
           - evidence_batch.evidences.select {|e| e.video?}.each do |video|
-            .video
+            .video{data: {long: video.longitude, lat: video.latitude}}
               %video{width: "400", controls: "true"}
                 %source{src: video.url, type: video.mime_type}
+            }
         .photos
           %table
             - evidence_batch.evidences.select {|e| e.image?}.each_slice(2) do |image_slice|
               %tr
                 - image_slice.each do |image|
                   %td
-                    %a{href: image.url, target: "_blank"}
+                    %a{href: image.url, target: "_blank", data: {long: image.longitude, lat: image.latitude}}
                       %img{src: "#{image.url}/convert?w=200"}
   - else
     %p Currently there is no uploaded evidence
+
+  %script{type: "text/javascript", src: "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=false"}
+  :javascript
+    function initialize() {
+      var center = new google.maps.LatLng(42.3498, -71.07832431793213);
+
+      var mapOptions = {
+        center: center,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+      $(".video[data-long][data-lat], .photos a[data-long][data-lat]").each(function(index) {
+        var $this = $(this);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng($this.data("lat"), $this.data("long")),
+          map: map
+        }); 
+      });
+
+      var marker = new google.maps.Marker({
+        position: center,
+        map: map,
+        title: "Finish Line"
+      });       
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
