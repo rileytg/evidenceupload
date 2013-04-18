@@ -80,7 +80,12 @@ jQuery ->
       $li.find('input.js-image-url[type=hidden]').val(file.url)
       $li.find('input.js-image-source[type=hidden]').val('filepicker')
       $li.find('input.js-mime-type[type=hidden]').val(file.mimetype)
-      $li.append($('<img>', src: file.url + '/convert?width=100'))
+
+      if file.mimetype.indexOf('image/') == 0
+        $li.append($('<img>', src: file.url + '/convert?width=100'))
+      else if file.mimetype.indexOf('video/') == 0
+        $li.append($('<div>').addClass('video-placeholder'))
+
     onComplete()
 
   }

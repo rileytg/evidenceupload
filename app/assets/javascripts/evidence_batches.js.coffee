@@ -34,9 +34,10 @@ jQuery ->
 
     # Behavior for remove image links
     $imageLanding.on 'click', '.is-remove-fields', (event) ->
+      $(event.target).closest('li.js-nested-fields').remove()
+
       count = $imageLanding.find('ul li:not(.placeholder)').length
       $imageLanding.find('li.placeholder').toggle(count > 0)
-      $(event.target).closest('li.js-nested-fields').remove()
       false
 
 
