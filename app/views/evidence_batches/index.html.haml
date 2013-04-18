@@ -1,8 +1,11 @@
 .content
   - unless @evidence_batches.empty?
     - @evidence_batches.each do |evidence_batch|
-      .evidence_batch{data: {id: evidence_batch.id}}
+      %section.evidence_batch{data: {id: evidence_batch.id}}
         .info
+          %p.batch-id
+            %span.field Batch ID
+            %span.value= evidence_batch.id
           %p.name
             %span.field Name
             %span.value= evidence_batch.name
