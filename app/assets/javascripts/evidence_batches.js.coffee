@@ -1,6 +1,6 @@
 jQuery ->
-  supported = ('draggable' of document.createElement('span'))
-  $('.js-show-if-drag-and-drop').toggle(supported)
+  isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+  $('.js-show-if-drag-and-drop').toggle(!isMobile)
 
   window.EvidenceBatches = {
   # Internal: called by filepicker multiple upload success
