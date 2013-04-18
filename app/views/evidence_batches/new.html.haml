@@ -63,16 +63,22 @@
             Please leave your contact information in case any follow up is
             required. This is strictly optional.
 
-          %table
-            %tr
-              %td= f.label :name
-              %td= f.text_field :name
-            %tr
-              %td= f.label :email
-              %td= f.email_field :email
-            %tr
-              %td= f.label :phone
-              %td= f.text_field :phone
+          %p
+            %table
+              %tr
+                %td= f.label :name
+                %td= f.text_field :name
+              %tr
+                %td= f.label :email
+                %td= f.email_field :email
+              %tr
+                %td= f.label :phone
+                %td= f.text_field :phone
+
+          %p
+            =f.label :notes, 'Any addition notes or comments'
+            =f.text_area :notes, :rows => 5
+
 
         %section
 
@@ -102,7 +108,4 @@
     %span#made-in-boston
       Made with love in Boston.
 
-    .share
-      %a(href="https://twitter.com/share" class="twitter-share-button" data-via="jbaudanza")
-        Tweet
-      .fb-like(data-href="http://www.evidenceupload.org" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false")
+    = render :partial => 'share'

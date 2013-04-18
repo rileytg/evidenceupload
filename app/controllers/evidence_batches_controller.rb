@@ -26,6 +26,8 @@ class EvidenceBatchesController < ApplicationController
   def create
     @evidence_batch = EvidenceBatch.new(params[:evidence_batch])
 
+    @evidence_batch.ip_address = request.remote_ip
+
     respond_to do |format|
       if @evidence_batch.save
         format.html # create.html.haml
