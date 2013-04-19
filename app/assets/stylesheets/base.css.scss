@@ -34,6 +34,12 @@ h1, h2, h3, h4, h5 {
   font-family:"Quadon-Thin", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+h3{
+  font-family:"Quadon-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:1.667em;
+  line-height: 1.2em;
+}
+
 header {
   padding-top: 24px;
 }
@@ -45,8 +51,12 @@ header p{
 section {
   padding: 5%;
   p {
-    max-width: 500px;
-    font-size: 16px;
+    display:block;
+    max-width: 460px;
+    margin:auto;
+    font-size:0.889em;
+    line-height: 1.5em;
+    padding-bottom:12px;
   }
 }
 
@@ -89,58 +99,6 @@ div.file-uploader{
 
 }
 
-.pick-button {
-  font-weight: bold;
-  @include text-shadow(-0.1em 0.1em #eee);
-  color: #555;
-  padding: 10px;
-  margin: 0;
-  border: 1px solid #999;
-  display: block;
-
-  @include border-radius(7px);
-  @include background-image(linear-gradient(#eee, #bbb));
-
-  &:hover {
-    @include background-image(linear-gradient(#ccc, #ccc));
-    color: #555;
-  }
-  &:active {
-    @include box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05));
-  }
-}
-
-.custom-button{
-  background: #E93F68;
-  border: 0;
-  cursor:pointer;
-  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;;
-  color: white;
-  font-weight: 600;
-  font-size: .8em;
-  padding: 18px 36px;
-  border-radius: 3px;
-  box-shadow: 0 3px 0 #B63251;
-
-  &:hover {
-    background:#F5577D;
-    color: white;
-  }
-
-  &:active {
-    background:#D6355C;
-  }
-
-  &:focus {
-    outline:#E93F68 auto 3px;
-  }
-
-  &:disabled {
-    background: #ff7da5;
-    color: white;
-    cursor: wait;
-  }
-}
 
 footer{
   ul {
@@ -224,6 +182,67 @@ footer{
     -moz-transition: width 0.6s ease;
     -o-transition: width 0.6s ease;
     transition: width 0.6s ease;
+  }
+}
+
+/*
+  Forms
+*/
+
+div.row{
+  padding:6px 0;
+}
+
+label{
+  display: inline-block;
+  font-size: 0.722em;
+  line-height: 1.385em;
+  font-weight: 600;
+  text-align:left;
+  vertical-align:middle;
+  width: 60px;
+}
+input[type=text], input[type=email], input[type=url], textarea{
+  padding: 12px;
+  @include border-radius(3px);
+  border: 1px solid #C9C9C9;
+  box-shadow: 0 1px 1px #E9E9E9 inset;
+  max-width:166px;
+  width:90%;
+  vertical-align:middle;
+}
+textarea{
+}
+.custom-button{
+  background: #FF7DA5;
+  border: 0;
+  @include border-radius(3px);
+  box-shadow: 0 3px 0 #B63251;
+  cursor:pointer;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;;
+  color: white;
+  font-weight: 600;
+  font-size: .8em;
+  padding: 18px 36px;
+
+  &:hover {
+    background:#F5577D;
+    color: white;
+  }
+
+  &:active {
+    background:#D6355C;
+  }
+
+  &:focus {
+    outline:#E93F68 auto 3px;
+  }
+
+  &:disabled {
+    background: #efefef;
+    box-shadow: 0 3px 0 #e7e7e7;
+    color: white;
+    cursor: not-allowed;
   }
 }
 
