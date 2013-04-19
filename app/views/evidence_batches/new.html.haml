@@ -37,12 +37,12 @@
       = form_for @evidence_batch do |f|
 
         %section
-          %h3
+          %h3.delta
             %span.step 1
             Add your photos and videos
 
           %p
-            %a.pick-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
+            %a.pick-button.custom-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
               Pick files from your file system or social media.
 
           -# Image landing
@@ -62,7 +62,7 @@
                 = render 'evidence_fields', f: builder
 
         %section
-          %h3
+          %h3.delta
             %span.step 2
             Identify yourself
 
@@ -70,24 +70,19 @@
             Please leave your contact information in case any follow up is
             required. This is strictly optional.
 
-          %p
-            %table
-              %tr
-                %td= f.label :name
-                %td= f.text_field :name
-              %tr
-                %td= f.label :email
-                %td= f.email_field :email
-              %tr
-                %td= f.label :phone
-                %td= f.text_field :phone
+          .row
+            = f.label :name
+            = f.text_field :name
+          .row
+            = f.label :email
+            = f.email_field :email
+          .row
+            = f.label :phone
+            = f.text_field :phone
 
-          %p
-            =f.label :notes, 'Any additional notes or comments'
+          .row
+            =f.label :notes, 'Notes or comments?'
             =f.text_area :notes, :rows => 5
-
-
-        %section
 
           %button.custom-button#submit{type: 'submit', disabled: 'disabled'}
             Submit as evidence

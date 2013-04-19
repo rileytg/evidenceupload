@@ -1,4 +1,4 @@
-
+@import "compass";
 
 #is-image-landing {
   margin-bottom: 10px;
@@ -54,11 +54,12 @@
 }
 
 .step {
-  background: image-url('circle.png') 0 0 no-repeat;
+  background: #999;
+  @include border-radius(24px);
   display: inline-block;
-  width: 66px;
-  height: 66px;
-  line-height: 66px;
+  width: 42px;
+  height: 42px;
+  line-height: 46px;
   text-align: center;
   font-size: 30px;
   color: white;
