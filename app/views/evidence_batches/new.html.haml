@@ -39,11 +39,7 @@
         %section
           %h3
             %span.step 1
-            Add your photos
-
-          %p.js-show-if-drag-and-drop
-            Drag and drop images or videos into the box below. Or you use the
-            button to browse your hard drive or social media sites.
+            Add your photos and videos
 
           %p
             %a.pick-button{onclick: "EvidenceBatches.pickFiles();", href:'#'}
@@ -52,6 +48,9 @@
           -# Image landing
           #is-image-landing.js-show-if-drag-and-drop
             = add_fields_tag f, :evidences
+
+            %p
+              or
 
             .progress.progress-striped.progress-danger.active.hide
               .bar#is-image-progress-bar
